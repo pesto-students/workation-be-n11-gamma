@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // initialising variables
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -36,6 +37,6 @@ app.use("/upload", uploadRoute);
 
 const PORT = process.env.PORT;
 
-app.listen(PORT || 8080, (err) => {
+app.listen(PORT || 8080, () => {
   console.log(`Running on PORT ${PORT}`);
 });

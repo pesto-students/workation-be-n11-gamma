@@ -13,12 +13,12 @@ const corsOptions = {
 };
 //
 dotenv.config();
-const app = express();
 
 const placeRoute = require('./place_route/place');
 const customerRoute = require('./auth_routes/customer_auth');
 const uploadRoute = require('./upload/single_upload');
 
+const app = express();
 //applying middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

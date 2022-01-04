@@ -67,9 +67,8 @@ node_modules/
 # dotenv environment variables file
 .env
 
-service_firebase.json
-
 /node_modules
 npm-debug.log
 .DS_Store
-/*.env
+
+service_firebase.json

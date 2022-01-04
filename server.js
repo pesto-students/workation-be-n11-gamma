@@ -7,11 +7,11 @@ const cookieParser = require("cookie-parser");
 const path = require("path");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const corsOptions = {
-  origin: (origin, callback) => {
-    callback(null, true);
-  },
-};
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     callback(null, true);
+//   },
+// };
 
 dotenv.config();
 
@@ -20,8 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
+// app.use(cors(corsOptions));
+// app.options("*", cors(corsOptions));
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

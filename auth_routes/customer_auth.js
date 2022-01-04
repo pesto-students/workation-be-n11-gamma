@@ -76,8 +76,8 @@ Route.post("/signup", modifyPassword, async (req, res) => {
 
 // Path to Login
 Route.post("/login", async (req, res) => {
-  const isCorrectPassword = function(password, thisPassword, callback) {
-    bcrypt.compare(password, thisPassword, function(err, same) {
+  const isCorrectPassword = function (password, thisPassword, callback) {
+    bcrypt.compare(password, thisPassword, function (err, same) {
       if (err) {
         callback(err);
       } else {

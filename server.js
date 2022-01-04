@@ -22,6 +22,22 @@ app.use(cookieParser());
 app.use(cors());
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
+app.use(function (req, res, next) {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://pesto-workation-fe.herokuapp.com/"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type, Accept"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
 app.use(express.json());
 // eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, "public")));

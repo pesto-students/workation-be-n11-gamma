@@ -35,6 +35,11 @@ app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 // eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, "public")));

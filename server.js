@@ -7,11 +7,6 @@ const cookieParser = require("cookie-parser");
 const path = require("path");
 const dotenv = require("dotenv");
 const cors = require("cors");
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     callback(null, true);
-//   },
-// };
 
 dotenv.config();
 
@@ -33,8 +28,6 @@ app.use(function (req, res, next) {
 });
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use(cors(corsOptions));
-// app.options("*", cors(corsOptions));
 app.use(express.json());
 // eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, "public")));

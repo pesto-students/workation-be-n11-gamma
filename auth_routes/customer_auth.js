@@ -56,6 +56,8 @@ Route.post("/signup", modifyPassword, async (req, res) => {
         if (!cookie) {
           res.cookie("token", token, {
             httpOnly: true,
+            sameSite: "None",
+            secure: true,
           });
         }
 
@@ -129,6 +131,8 @@ Route.post("/login", async (req, res) => {
         if (!cookie) {
           res.cookie("token", token, {
             httpOnly: true,
+            sameSite: "None",
+            secure: true,
           });
         }
 

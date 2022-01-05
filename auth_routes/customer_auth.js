@@ -54,7 +54,11 @@ Route.post("/signup", modifyPassword, async (req, res) => {
         });
         const cookie = req.cookies.token;
         if (!cookie) {
-          res.cookie("token", token, { httpOnly: true, sameSite: "lax" });
+          res.cookie("token", token, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+          });
         }
 
         res.status(201).send({
@@ -125,7 +129,11 @@ Route.post("/login", async (req, res) => {
         });
         const cookie = req.cookies.token;
         if (!cookie) {
-          res.cookie("token", token, { httpOnly: true, sameSite: "lax" });
+          res.cookie("token", token, {
+            httpOnly: true,
+            sameSite: "none",
+            secure: true,
+          });
         }
 
         res.status(201).send({

@@ -455,7 +455,7 @@ Route.post("/form-submit-url", (req, res) => {
   async.series(
     [
       async () => {
-        await smtpTransport.sendMail(mailOptions1, function(error) {
+        await smtpTransport.sendMail(mailOptions1, function (error) {
           if (error) {
             console.log(error);
             return "user mail not sent";
@@ -465,7 +465,7 @@ Route.post("/form-submit-url", (req, res) => {
         });
       },
       async () => {
-        await smtpTransport.sendMail(mailOptions2, function(error) {
+        await smtpTransport.sendMail(mailOptions2, function (error) {
           if (error) {
             console.log(error);
             return " mail not sent to workation";
@@ -517,12 +517,14 @@ Route.post("/getbookingsummary", async (req, res) => {
   await async.series(
     [
       async () => {
-        const getBooking = await booking.doc(req.body.bookingId).get();
+        const getBooking = await booking.doc(req.body?.bookingId).get();
         if (getBooking.exists) {
-          let additionalStep = { ...getBooking.data(), id: req.body.bookingId };
+          let additionalStep = {
+            ...getBooking?.data(),
+            id: req.body?.bookingId,
+          };
           bookingDetails.push(additionalStep);
           finalResult.bookingDetails = bookingDetails;
-          return;
         } else {
           return;
         }
@@ -540,7 +542,7 @@ Route.post("/getbookingsummary", async (req, res) => {
     ],
     (err) => {
       if (err) {
-        return res.status(501).send({ message: "internal error" });
+        return res.status(501).send({ message: err.message });
       }
       res.status(200).send(finalResult);
     }

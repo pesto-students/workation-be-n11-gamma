@@ -16,12 +16,10 @@ const cors = require("cors");
 dotenv.config();
 
 //applying middlewares
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(cors());
-// app.use(cors(corsOptions));
-// app.options("*", cors(corsOptions));
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -35,6 +33,8 @@ app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
+// app.use(cors(corsOptions));
+// app.options("*", cors(corsOptions));
 app.use(express.json());
 // eslint-disable-next-line no-undef
 app.use(express.static(path.join(__dirname, "public")));

@@ -12,7 +12,7 @@ const authorize = (req, res, next) => {
    * Warning: Please dont remove the below code
    */
   // const token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.token || req.headers['authorization'];
-  const token = req.cookies.token;
+  const token = req.cookies.token || req.headers["authorization"];
   if (!token) {
     res.clearCookie("token");
     return res.status(401).send("No token Provided!");

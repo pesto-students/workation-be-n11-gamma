@@ -52,7 +52,7 @@ Route.post("/signup", modifyPassword, async (req, res) => {
         const token = jwt.sign(payload, secret, {
           expiresIn: "1h",
         });
-        const cookie = req.cookies.token;
+        const cookie = req.cookies.token || req.headers["authorization"];
         if (!cookie) {
           res.cookie("token", token, {
             httpOnly: true,
@@ -125,7 +125,7 @@ Route.post("/login", async (req, res) => {
         const token = jwt.sign(payload, secret, {
           expiresIn: "1h",
         });
-        const cookie = req.cookies.token;
+        const cookie = req.cookies.token || req.headers["authorization"];
         if (!cookie) {
           res.cookie("token", token, {
             httpOnly: true,
@@ -146,7 +146,7 @@ Route.post("/login", async (req, res) => {
 
 // Path to check user on every refresh
 Route.get("/isAuth", async (req, res) => {
-  const req_token = req.cookies.token;
+  const req_token = req.cookies.token || req.headers["authorization"];
   let auth = false;
   if (!req_token) {
     res.clearCookie("token");

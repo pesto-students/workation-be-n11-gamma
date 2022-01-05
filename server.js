@@ -19,10 +19,7 @@ dotenv.config();
 app.use(cors());
 app.use(cookieParser());
 app.use(function (req, res, next) {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://pesto-workation-fe.herokuapp.com, http://localhost:3000"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"

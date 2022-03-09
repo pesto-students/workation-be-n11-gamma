@@ -8,12 +8,17 @@ Workation is a web application where people like us, who love to explore the wor
 <br/>
 
 
-## Table of Content
+## Table of Contents
 
-   ###### 1. [Installation](#installation)
-   ###### 2. [Technology Stack](#technology-stack)
-   ###### 3. [Authors](#authors)
-   ###### 4. [License](#license)
+   ###### 1. [Demo](#demo)
+   ###### 2. [Installation](#installation)
+   ###### 3. [Technology Stack](#technology-stack)
+   ###### 4. [Authors](#authors)
+   ###### 5. [License](#license)
+
+## Demo
+
+###### [Live Demo](https://pesto-workation-fe.herokuapp.com/)
 
 ## Installation
 ```
@@ -63,13 +68,13 @@ Workation is a web application where people like us, who love to explore the wor
 
 ## Technology Stack
 ```
-1. Node
-2. Express
+1. Node JS
+2. Express JS
 3. JWT Token
 4. Firebase Database
 5. Heroku
 6. Nodemiler
-7. s3Bucket
+7. s3-Bucket
 8. Razorpay
 ```
 
